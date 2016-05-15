@@ -1,33 +1,26 @@
-call plug#begin('~/.vim/bundle')
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tpope/vim-haml'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-rake'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-eunuch'
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'tpope/vim-endwise'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'vim-airline/vim-airline'
-Plugin 'mattn/emmet-vim'
-Plugin 'gregsexton/MatchTag'
-Plugin 'slim-template/vim-slim'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'jiangmiao/auto-pairs'
-call plug#end()
+" ======================================================================
+" Plugin Initialisation
+" ======================================================================
+" Loads all plugins specified under ~/.vim/plugins.vim
+" Currently uses Vundle to manage all other plugins
+if filereadable(expand("~/.vim/plugins.vim"))
+  source ~/.vim/plugins.vim
+endif
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+" ======================================================================
+" Helper functions
+" ======================================================================
+" Autocreate parent directions when saving a file
+function s:MkNonExDir(file, buf)
+  if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+    let dir=fnamemodify(a:file, ':h')
+    if !isdirectory(dir)
+      call mkdir(dir, 'p')
+    endif
+  endif
+endfunction
 
-" Leader
+" Change leader to spacebar
 let mapleader = " "
 
 set backspace=2   " Backspace deletes like most programs in insert mode
@@ -42,38 +35,16 @@ set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 set nowrap
 
-" Autocreate parent directions when saving a file
-function s:MkNonExDir(file, buf)
-  if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
-    let dir=fnamemodify(a:file, ':h')
-    if !isdirectory(dir)
-      call mkdir(dir, 'p')
-    endif
-  endif
-endfunction
-
 augroup BWCCreateDir
   autocmd!
   autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
 augroup END
-
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
 endif
-
-if filereadable(expand("~/.vimrc.bundles"))
-  source ~/.vimrc.bundles
-endif
-
-" Load matchit.vim, but only if the user hasn't installed a newer version.
-if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
-  runtime! macros/matchit.vim
-endif
-
-filetype plugin indent on
 
 augroup vimrcEx
   autocmd!
@@ -216,8 +187,3 @@ set complete+=kspell
 
 " Always use vertical diffs
 set diffopt+=vertical
-
-" Local config
-if filereadable($HOME . "/.vimrc.local")
-  source ~/.vimrc.local
-endif
