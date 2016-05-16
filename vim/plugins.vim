@@ -21,6 +21,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdcommenter'
+Plug 'stephpy/vim-yaml'
 
 " Themes
 Plug 'jacoborus/tender'
