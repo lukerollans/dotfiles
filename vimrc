@@ -99,6 +99,9 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
+" CtrlP options
+let g:ctrlp_custom_ignore = {'dir': '\v[\/](\.git|node_modules|\.sass-cache|bower_components|build)$'}
+
 " Highlight the current line
 augroup CursorLine
   au!
