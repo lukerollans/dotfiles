@@ -23,6 +23,5 @@ Plug 'jiangmiao/auto-pairs'
 
 " Themes
 Plug 'jacoborus/tender'
-Plug 'lifepillar/vim-wwdc16-theme'
 call plug#end()
 
