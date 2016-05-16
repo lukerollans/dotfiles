@@ -20,5 +20,9 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'jiangmiao/auto-pairs'
+
+" Themes
+Plug 'jacoborus/tender'
+Plug 'lifepillar/vim-wwdc16-theme'
 call plug#end()
 

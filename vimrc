@@ -20,8 +20,8 @@ function s:MkNonExDir(file, buf)
   endif
 endfunction
 
-" Use 'mustang' colour scheme
-colorscheme mustang
+" Use 'monokai' colour scheme
+colorscheme tender
 
 " Change leader to spacebar
 let mapleader = " "
