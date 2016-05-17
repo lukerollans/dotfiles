@@ -99,7 +99,7 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 
   " Ignore some stuff
-  let g:ctrlp_custom_ignore = {'dir': '\v[\/](\.git|node_modules|\.sass-cache|bower_components|build)$'}
+  let g:ctrlp_custom_ignore = {'dir': '\v[\/](\.git|node_modules|vendor|\.sass-cache|bower_components|build)$'}
 endif
 
 " Highlight the current line
