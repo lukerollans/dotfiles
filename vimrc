@@ -98,6 +98,9 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 
+  " Tell ack.vim to use ag
+  let g:ackprg = 'ag --nogroup --nocolor --column'
+
   " Ignore some stuff
   let g:ctrlp_custom_ignore = {'dir': '\v[\/](\.git|node_modules|vendor|\.sass-cache|bower_components|build)$'}
 endif

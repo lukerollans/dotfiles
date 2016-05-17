@@ -23,6 +23,9 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdcommenter'
 Plug 'stephpy/vim-yaml'
 
+" File contents searching
+Plug 'mileszs/ack.vim'
+
 " Themes
 Plug 'jacoborus/tender'
 call plug#end()
