@@ -25,6 +25,5 @@ Plug 'stephpy/vim-yaml'
 
 " Themes
 Plug 'jacoborus/tender'
-Plug 'lifepillar/vim-wwdc16-theme'
 call plug#end()
 
