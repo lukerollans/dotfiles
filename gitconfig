@@ -12,7 +12,7 @@
   co = checkout
   pf = push --force-with-lease
   st = status
-	cleanup = branch --merged | grep -v \"\\*\" | grep -v master | grep -v dev | xargs -n 1 git branch -d
+  cleanup = branch --merged | grep -v master | grep -v dev | xargs -n 1 git branch -d
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input
