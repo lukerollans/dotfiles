@@ -26,6 +26,12 @@ colorscheme tender
 " Change leader to spacebar
 let mapleader = " "
 
+" Folding
+set foldmethod=indent
+set foldnestmax=10
+set nofoldenable
+set foldlevel=0
+
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
 set nowritebackup
