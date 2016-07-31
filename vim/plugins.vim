@@ -22,6 +22,7 @@ Plug 'mxw/vim-jsx'
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdcommenter'
 Plug 'stephpy/vim-yaml'
+Plug 'janko-m/vim-test'
 
 " File contents searching
 Plug 'mileszs/ack.vim'
