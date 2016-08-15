@@ -2,8 +2,6 @@ call plug#begin('~/.vim/bundle')
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-haml'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-rake'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
