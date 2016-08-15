@@ -1,5 +1,4 @@
 call plug#begin('~/.vim/bundle')
-Plug 'thoughtbot/vim-rspec'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-haml'
