@@ -15,6 +15,12 @@ fpath=(~/.zsh/completion /usr/local/share/zsh/site-functions $fpath)
 autoload -U compinit
 compinit
 
+# Use nvim if available over vim
+if type nvim > /dev/null 2>&1; then
+  alias vim='nvim'
+  fi
+fi
+
 # load custom executable functions
 for function in ~/.zsh/functions/*; do
   source $function
