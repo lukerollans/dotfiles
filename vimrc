@@ -182,6 +182,11 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+" Temporary fix for nvim mapping <C-h>
+if has('nvim')
+  nmap <BS> <C-W>h
+endif
+
 " Test leaders
 nmap <silent> <leader>s :TestNearest<CR>
 nmap <silent> <leader>t :TestFile<CR>
