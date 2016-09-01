@@ -207,5 +207,5 @@ set complete+=kspell
 " Always use vertical diffs
 set diffopt+=vertical
 
-" Use 'tendercontrast' colour scheme
-colorscheme tendercontrast
+" Use 'tender' colour scheme
+colorscheme tender
