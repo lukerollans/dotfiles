@@ -20,9 +20,6 @@ function s:MkNonExDir(file, buf)
   endif
 endfunction
 
-" Use 'tender' colour scheme
-colorscheme tender
-
 " Change leader to spacebar
 let mapleader = " "
 
@@ -209,3 +206,11 @@ set complete+=kspell
 
 " Always use vertical diffs
 set diffopt+=vertical
+
+" Use 'tendercontrast' colour scheme
+colorscheme tendercontrast
+
+" enable tender airline theme
+let g:tender_airline = 1
+" set airline theme
+let g:airline_theme = 'tender'

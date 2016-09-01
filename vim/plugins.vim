@@ -23,5 +23,6 @@ Plug 'mileszs/ack.vim'
 
 " Themes
 Plug 'jacoborus/tender'
+Plug 'amadeus/vim-evokai'
 call plug#end()
 
