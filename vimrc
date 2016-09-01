@@ -209,8 +209,3 @@ set diffopt+=vertical
 
 " Use 'tendercontrast' colour scheme
 colorscheme tendercontrast
-
-" enable tender airline theme
-let g:tender_airline = 1
-" set airline theme
-let g:airline_theme = 'tender'
