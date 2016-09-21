@@ -27,7 +27,7 @@ let mapleader = " "
 set foldmethod=indent
 set foldnestmax=1
 set nofoldenable
-set foldlevel=0
+set foldlevel=5
 
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
@@ -196,6 +196,10 @@ let g:syntastic_check_on_open=1
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 let g:syntastic_eruby_ruby_quiet_messages =
     \ {"regex": "possibly useless use of a variable in void context"}
+
+" Turn on JSX syntax for plain JS files
+" (useful for React Native)
+let g:jsx_ext_required = 0
 
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
