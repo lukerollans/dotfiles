@@ -64,5 +64,3 @@ bindkey -s "^T" "^[Isudo ^[A" # "t" for "toughguy"
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
