@@ -2,7 +2,7 @@
 " Plugin Initialisation
 " ======================================================================
 " Loads all plugins specified under ~/.vim/plugins.vim
-" Currently uses Vundle to manage all other plugins
+" Currently uses vim-plug to manage all other plugins
 if filereadable(expand("~/.vim/plugins.vim"))
   source ~/.vim/plugins.vim
 endif
@@ -24,8 +24,8 @@ endfunction
 let mapleader = " "
 
 " Folding
-set foldmethod=indent
-set foldnestmax=1
+set foldmethod=manual
+set foldnestmax=15
 set nofoldenable
 set foldlevel=5
 
