@@ -22,7 +22,6 @@ Plug 'janko-m/vim-test'
 Plug 'mileszs/ack.vim'
 
 " Themes
-Plug 'jacoborus/tender'
-Plug 'amadeus/vim-evokai'
+Plug 'rakr/vim-one'
 call plug#end()
 
