@@ -17,6 +17,9 @@ if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
 fi
 
+# Add truecolor support to tmux
+alias tmux='TERM=xterm-256color tmux'
+
 # load custom executable functions
 for function in ~/.zsh/functions/*; do
   source $function
