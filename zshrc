@@ -15,6 +15,7 @@ compinit
 # Use nvim if available over vim
 if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
+  export GIT_EDITOR=nvim
 fi
 
 # Add truecolor support to tmux
