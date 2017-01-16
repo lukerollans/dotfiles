@@ -160,9 +160,6 @@ nnoremap <Down> :echoe "Use j"<CR>
 nnoremap <Leader>- :wincmd _<cr>:wincmd \|<cr>
 nnoremap <Leader>= :wincmd =<cr>
 
-" vim-rspec override
-let g:rspec_command = "!bundle exec rspec {spec}"
-
 " Run commands that require an interactive shell
 nnoremap <Leader>r :RunInInteractiveShell<space>
 
@@ -228,7 +225,6 @@ endif
 if (has("termguicolors"))
   set termguicolors
 endif
-
 
 set background=dark
 colorscheme one
