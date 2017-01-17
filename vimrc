@@ -211,5 +211,8 @@ set complete+=kspell
 " Always use vertical diffs
 set diffopt+=vertical
 
+" Set airline theme
+let g:airline_theme='jellybeans'
+
 " Use 'tender' colorscheme
 colorscheme tender
