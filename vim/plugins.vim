@@ -22,6 +22,6 @@ Plug 'janko-m/vim-test'
 Plug 'mileszs/ack.vim'
 
 " Themes
-Plug 'rakr/vim-one'
+Plug 'jacoborus/tender'
 call plug#end()
 
