@@ -212,7 +212,7 @@ set complete+=kspell
 set diffopt+=vertical
 
 " Set airline theme
-let g:airline_theme='jellybeans'
+let g:airline_theme='powerlineish'
 
 " Use 'tender' colorscheme
 colorscheme tender
