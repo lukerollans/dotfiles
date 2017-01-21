@@ -201,6 +201,14 @@ let g:syntastic_eruby_ruby_quiet_messages =
 " (useful for React Native)
 let g:jsx_ext_required = 0
 
+" Tell emmet to expand JSX and also in plain JS files
+autocmd FileType html,css,javascript.jsx EmmetInstall
+let g:user_emmet_settings = {
+\  'javascript.jsx' : {
+\      'extends' : 'jsx',
+\  },
+\}
+
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
 set spellfile=$HOME/.vim-spell-en.utf-8.add
