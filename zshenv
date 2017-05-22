@@ -8,9 +8,5 @@ export PATH="$HOME/.bin:/usr/local/sbin:$PATH"
 # mkdir .git/safe in the root of repositories you trust
 export PATH=".git/safe/../../bin:$PATH"
 
-# Setup rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
  #Local config
 [[ -f ~/.zshenv.local ]] && source ~/.zshenv.local

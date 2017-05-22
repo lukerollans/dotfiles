@@ -8,7 +8,7 @@ git_prompt_info() {
 setopt promptsubst
 export PS1='${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%c%{$reset_color%}$(git_prompt_info) %# '
 
-# completion
+# Autocomplete
 autoload -U compinit
 compinit
 
@@ -20,11 +20,6 @@ fi
 
 # Add truecolor support to tmux
 alias tmux='TERM=xterm-256color tmux'
-
-# load custom executable functions
-for function in ~/.zsh/functions/*; do
-  source $function
-done
 
 # makes color constants available
 autoload -U colors
@@ -62,6 +57,10 @@ bindkey "^P" history-search-backward
 bindkey "^Y" accept-and-hold
 bindkey "^N" insert-last-word
 bindkey -s "^T" "^[Isudo ^[A" # "t" for "toughguy"
+
+# Setup rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
