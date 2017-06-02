@@ -18,6 +18,7 @@ Plug 'mxw/vim-jsx'
 Plug 'jiangmiao/auto-pairs'
 Plug 'stephpy/vim-yaml'
 Plug 'janko-m/vim-test'
+Plug 'slim-template/vim-slim'
 
 " File contents searching
 Plug 'mileszs/ack.vim'
