@@ -18,9 +18,6 @@ if type nvim > /dev/null 2>&1; then
   export GIT_EDITOR=nvim
 fi
 
-# Add truecolor support to tmux
-alias tmux='TERM=xterm-256color tmux'
-
 # makes color constants available
 autoload -U colors
 colors
