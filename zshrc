@@ -48,3 +48,4 @@ eval "$(rbenv init -)"
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+[[ -f /Users/lukerollans/.sentinel/current/bin/sentinel ]] && eval "$(/Users/lukerollans/.sentinel/current/bin/sentinel init -)"
