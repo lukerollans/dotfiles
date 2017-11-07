@@ -18,6 +18,11 @@ Plug 'stephpy/vim-yaml'
 Plug 'slim-template/vim-slim'
 Plug 'kchmck/vim-coffee-script'
 
+" Opinionated JavaScript formatting
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript'] }
+
 " File contents searching
 Plug 'mileszs/ack.vim'
 

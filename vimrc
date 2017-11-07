@@ -77,6 +77,10 @@ augroup vimrcEx
   autocmd FileType gitcommit setlocal textwidth=72
   autocmd FileType gitcommit setlocal spell
 
+  " Automatically run prettier on changed js files
+  let g:prettier#autoformat = 0
+  autocmd BufWritePre *.js,*.jsx PrettierAsync
+
   " Allow stylesheets to autocomplete hyphenated words
   autocmd FileType css,scss,sass setlocal iskeyword+=-
 augroup END
