@@ -12,12 +12,6 @@ export PS1='${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%c%{$
 autoload -U compinit
 compinit
 
-# Use nvim if available over vim
-if type nvim > /dev/null 2>&1; then
-  alias vim='nvim'
-  export GIT_EDITOR=nvim
-fi
-
 # makes color constants available
 autoload -U colors
 colors
