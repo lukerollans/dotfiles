@@ -39,4 +39,9 @@ bindkey -s "^T" "^[Isudo ^[A" # "t" for "toughguy"
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
+# yarn
 export PATH="$HOME/.yarn/bin:$PATH"
+
+# asdf
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
