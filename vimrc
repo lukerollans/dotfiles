@@ -64,7 +64,6 @@ augroup vimrcEx
     \ endif
 
   " Set syntax highlighting for specific file types
-  autocmd BufRead,BufNewFile Appraisals set filetype=ruby
   autocmd BufRead,BufNewFile *.md set filetype=markdown
 
   " Enable spellchecking for Markdown
@@ -194,12 +193,6 @@ nmap <silent> <leader>g :TestVisit<CR>
 
 " Sierra clipboard fix
 set clipboard=unnamed
-
-" configure syntastic syntax checking to check on open as well as save
-let g:syntastic_check_on_open=1
-let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
-let g:syntastic_eruby_ruby_quiet_messages =
-    \ {"regex": "possibly useless use of a variable in void context"}
 
 " Turn on JSX syntax for plain JS files
 " (useful for React Native)
