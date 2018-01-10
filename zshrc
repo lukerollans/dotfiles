@@ -42,6 +42,6 @@ bindkey -s "^T" "^[Isudo ^[A" # "t" for "toughguy"
 # yarn
 export PATH="$HOME/.yarn/bin:$PATH"
 
-# asdf
+# asdf package manager
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
