@@ -223,5 +223,8 @@ set diffopt+=vertical
 " Set airline theme
 let g:airline_theme='powerlineish'
 
+" Gentle auto pairing
+let g:AutoPairsUseInsertedCount=1
+
 " Use 'tender' colorscheme
 colorscheme tender

@@ -13,10 +13,8 @@ Plug 'gregsexton/MatchTag'
 Plug 'elixir-lang/vim-elixir'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'jiangmiao/auto-pairs'
+Plug 'vim-scripts/auto-pairs-gentle'
 Plug 'stephpy/vim-yaml'
-" Plug 'slim-template/vim-slim'
-" Plug 'kchmck/vim-coffee-script'
 
 " Opinionated JavaScript formatting
 Plug 'prettier/vim-prettier', {
