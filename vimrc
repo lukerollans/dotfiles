@@ -79,9 +79,6 @@ augroup vimrcEx
   " Automatically run prettier on changed js files
   let g:prettier#autoformat = 0
   autocmd BufWritePre *.js,*.jsx PrettierAsync
-
-  " Allow stylesheets to autocomplete hyphenated words
-  autocmd FileType css,scss,sass setlocal iskeyword+=-
 augroup END
 
 " Softtabs, 2 spaces
@@ -129,27 +126,6 @@ set colorcolumn=+1
 set number
 set numberwidth=5
 
-" Tab completion
-" will insert tab at beginning of line,
-" will use completion if not at beginning
-set wildmode=list:longest,list:full
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
-endfunction
-inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <S-Tab> <c-n>
-
-" Exclude Javascript files in :Rtags via rails.vim due to warnings when parsing
-let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
-
-" Index ctags from any project, including those outside Rails
-map <Leader>ct :!ctags -R .<CR>
-
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 
@@ -158,13 +134,6 @@ nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
-
-" hotkeys to zoom vim pane
-nnoremap <Leader>- :wincmd _<cr>:wincmd \|<cr>
-nnoremap <Leader>= :wincmd =<cr>
-
-" Run commands that require an interactive shell
-nnoremap <Leader>r :RunInInteractiveShell<space>
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
@@ -184,16 +153,6 @@ if has('nvim')
   nmap <BS> <C-W>h
 endif
 
-" Test leaders
-nmap <silent> <leader>s :TestNearest<CR>
-nmap <silent> <leader>t :TestFile<CR>
-nmap <silent> <leader>a :TestSuite<CR>
-nmap <silent> <leader>l :TestLast<CR>
-nmap <silent> <leader>g :TestVisit<CR>
-
-" Sierra clipboard fix
-set clipboard=unnamed
-
 " Turn on JSX syntax for plain JS files
 " (useful for React Native)
 let g:jsx_ext_required = 0
@@ -206,19 +165,9 @@ let g:user_emmet_settings = {
 \  },
 \}
 
-" Use absolute paths when running tests
-" Makes things compatible in an Elixir umbrella project
-let test#filename_modifier = ':p'
-
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
 set spellfile=$HOME/.vim-spell-en.utf-8.add
-
-" Autocomplete with dictionary words when spell check is on
-set complete+=kspell
-
-" Always use vertical diffs
-set diffopt+=vertical
 
 " Set airline theme
 let g:airline_theme='powerlineish'
