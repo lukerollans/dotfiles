@@ -41,6 +41,12 @@ set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 set nowrap
 
+" Scrutinise syntax highlighting speed
+augroup vimrc
+  autocmd!
+  autocmd BufWinEnter,Syntax * syn sync minlines=500 maxlines=500
+augroup END
+
 augroup BWCCreateDir
   autocmd!
   autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
