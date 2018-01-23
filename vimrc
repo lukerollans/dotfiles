@@ -194,5 +194,6 @@ let g:airline_theme='powerlineish'
 " Gentle auto pairing
 let g:AutoPairsUseInsertedCount=1
 
-" Use 'tender' colorscheme
-colorscheme tender
+" Setup colorscheme
+set term=xterm-256color
+colorscheme solarized8_flat

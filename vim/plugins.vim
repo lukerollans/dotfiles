@@ -25,6 +25,5 @@ Plug 'prettier/vim-prettier', {
 Plug 'mileszs/ack.vim'
 
 " Themes
-Plug 'jacoborus/tender'
+Plug 'lifepillar/vim-solarized8'
 call plug#end()
-
