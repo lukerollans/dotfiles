@@ -47,4 +47,6 @@ export PATH="$HOME/.yarn/bin:$PATH"
 . $HOME/.asdf/completions/asdf.bash
 
 # fzf for fuzzy finding
+# Use The Silver Searcher (`ag`) as the default fzf finder
+export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
