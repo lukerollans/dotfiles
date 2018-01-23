@@ -41,6 +41,19 @@ set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 set nowrap
 
+" Have autocomplete work by using Tab, similar to modern GUI editors
+set wildmode=list:longest,list:full
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <S-Tab> <c-n>
+
 " Scrutinise syntax highlighting speed
 augroup vimrc
   autocmd!
