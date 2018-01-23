@@ -1,6 +1,5 @@
 call plug#begin('~/.vim/bundle')
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-eunuch'
@@ -23,6 +22,9 @@ Plug 'prettier/vim-prettier', {
 
 " File contents searching
 Plug 'mileszs/ack.vim'
+
+" fzf for fuzzy finding
+Plug '/usr/local/opt/fzf'
 
 " Themes
 Plug 'lifepillar/vim-solarized8'

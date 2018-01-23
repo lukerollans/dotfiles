@@ -45,3 +45,6 @@ export PATH="$HOME/.yarn/bin:$PATH"
 # asdf package manager
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
+
+# fzf for fuzzy finding
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
