@@ -110,7 +110,7 @@ set expandtab
 set list listchars=tab:»·,trail:·,nbsp:·
 
 " Use Ctrl + P to run fzf (muscle memory from ctrp.vim!)
-nnoremap <silent> <c-p> :call fzf#run({'down': '40%'})<CR>
+nnoremap <silent> <c-p> :FZF<CR>
 
 " Use The Silver Searcher for finding files where possible
 " https://github.com/ggreer/the_silver_searcher
