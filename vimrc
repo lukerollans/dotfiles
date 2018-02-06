@@ -130,7 +130,7 @@ augroup CursorLine
 augroup END
 
 " Turn on relative number by default
-" set relativenumber
+set relativenumber
 
 " Make it obvious where 80 characters is
 set textwidth=80
