@@ -97,6 +97,7 @@ augroup vimrcEx
 
   " Automatically run prettier on changed js files
   let g:prettier#autoformat = 0
+  let g:prettier#nvim_unstable_async = 1
   autocmd BufWritePre *.js,*.jsx PrettierAsync
 augroup END
 
@@ -191,4 +192,4 @@ let g:AutoPairsUseInsertedCount=1
 
 " Setup colorscheme
 set term=xterm-256color
-colorscheme solarized8_flat
+colorscheme tender
