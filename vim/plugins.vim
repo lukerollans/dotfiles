@@ -28,4 +28,5 @@ Plug '/usr/local/opt/fzf'
 
 " Themes
 Plug 'lifepillar/vim-solarized8'
+Plug 'jacoborus/tender'
 call plug#end()
