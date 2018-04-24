@@ -98,7 +98,7 @@ augroup vimrcEx
   " Automatically run prettier on changed js files
   let g:prettier#autoformat = 0
   let g:prettier#nvim_unstable_async = 1
-  autocmd BufWritePre *.js,*.jsx PrettierAsync
+  autocmd BufWritePre *.js,*.jsx Prettier
 augroup END
 
 " Softtabs, 2 spaces
@@ -191,5 +191,5 @@ let g:airline_theme='powerlineish'
 let g:AutoPairsUseInsertedCount=1
 
 " Setup colorscheme
-set term=xterm-256color
+" set term=xterm-256color
 colorscheme tender
