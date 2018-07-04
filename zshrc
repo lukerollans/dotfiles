@@ -50,3 +50,9 @@ export PATH="$HOME/.yarn/bin:$PATH"
 # Use The Silver Searcher (`ag`) as the default fzf finder
 export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/lukerollans/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/lukerollans/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/lukerollans/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/lukerollans/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
