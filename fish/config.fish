@@ -1,1 +1,2 @@
-# Fish config entry point. Empty for now!
+# Set universal editor
+set -U EDITOR vim
