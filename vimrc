@@ -23,6 +23,11 @@ endfunction
 " Change leader to spacebar
 let mapleader = " "
 
+" Possible performance improvements
+set nocompatible
+set ttyfast
+set lazyredraw
+
 " Folding
 set foldmethod=manual
 set foldnestmax=15
