@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/bundle')
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'janko-m/vim-test'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-eunuch'
