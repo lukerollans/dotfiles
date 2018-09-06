@@ -28,6 +28,9 @@ set nocompatible
 set ttyfast
 set lazyredraw
 
+" Set the vim-test strategy
+let test#strategy = "vimterminal"
+
 " Folding
 set foldmethod=manual
 set foldnestmax=15
