@@ -10,3 +10,6 @@ export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/lukerollans/Downloads/google-cloud-sdk/path.fish.inc' ]; if type source > /dev/null; source '/Users/lukerollans/Downloads/google-cloud-sdk/path.fish.inc'; else; . '/Users/lukerollans/Downloads/google-cloud-sdk/path.fish.inc'; end; end
+
+# Add composer binaries to path
+set -gx PATH ~/.composer/vendor/bin $PATH
