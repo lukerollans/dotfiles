@@ -13,3 +13,6 @@ if [ -f '/Users/lukerollans/Downloads/google-cloud-sdk/path.fish.inc' ]; if type
 
 # Add composer binaries to path
 set -gx PATH ~/.composer/vendor/bin $PATH
+
+# Add brew mysql binary to path
+set -gx PATH /usr/local/opt/mysql@5.7/bin $PATH
