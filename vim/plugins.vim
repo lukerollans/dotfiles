@@ -8,7 +8,7 @@ Plug 'tpope/vim-endwise'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mattn/emmet-vim'
-" Plug 'gregsexton/MatchTag'
+Plug 'gregsexton/MatchTag'
 Plug 'elixir-lang/vim-elixir'
 Plug 'pangloss/vim-javascript'
 Plug 'posva/vim-vue'
@@ -28,6 +28,5 @@ Plug 'mileszs/ack.vim'
 Plug '/usr/local/opt/fzf'
 
 " Themes
-Plug 'lifepillar/vim-solarized8'
 Plug 'jacoborus/tender'
 call plug#end()
