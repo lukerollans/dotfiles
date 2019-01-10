@@ -103,9 +103,6 @@ augroup vimrcEx
   autocmd FileType gitcommit setlocal textwidth=72
   autocmd FileType gitcommit setlocal spell
 
-  " Use JSX syntax highlighting in TSX files
-  autocmd BufRead,BufNewFile *.tsx setlocal syntax=javascript.jsx
-
   " Automatically run prettier on changed js files
   let g:prettier#autoformat = 0
   let g:prettier#nvim_unstable_async = 1
