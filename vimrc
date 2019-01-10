@@ -106,7 +106,7 @@ augroup vimrcEx
   " Automatically run prettier on changed js files
   let g:prettier#autoformat = 0
   let g:prettier#nvim_unstable_async = 1
-  autocmd BufWritePre *.js,*.jsx Prettier
+  autocmd BufWritePre *.js,*.jsx,*.ts,*.tsx Prettier
 augroup END
 
 " Softtabs, 2 spaces
@@ -181,7 +181,7 @@ endif
 let g:jsx_ext_required = 0
 
 " Tell emmet to expand JSX and also in plain JS files
-autocmd FileType html,css,javascript.jsx EmmetInstall
+autocmd FileType html,css,javascript.jsx,typescript.tsx EmmetInstall
 let g:user_emmet_settings = {
 \  'javascript.jsx' : {
 \      'extends' : 'jsx',

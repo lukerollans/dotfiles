@@ -8,18 +8,19 @@ Plug 'tpope/vim-endwise'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mattn/emmet-vim'
-Plug 'gregsexton/MatchTag'
+" Plug 'gregsexton/MatchTag'
 Plug 'elixir-lang/vim-elixir'
 Plug 'pangloss/vim-javascript'
 Plug 'posva/vim-vue'
 Plug 'mxw/vim-jsx'
 Plug 'vim-scripts/auto-pairs-gentle'
 Plug 'stephpy/vim-yaml'
+Plug 'leafgarland/typescript-vim'
 
 " Opinionated JavaScript formatting
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
-  \ 'for': ['javascript'] }
+  \ 'for': ['javascript', 'typescript'] }
 
 " File contents searching
 Plug 'mileszs/ack.vim'
