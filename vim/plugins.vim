@@ -31,4 +31,5 @@ Plug '/usr/local/opt/fzf'
 
 " Themes
 Plug 'jacoborus/tender'
+Plug 'semibran/vim-colors-synthetic'
 call plug#end()
