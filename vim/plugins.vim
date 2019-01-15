@@ -17,6 +17,7 @@ Plug 'ianks/vim-tsx'
 Plug 'vim-scripts/auto-pairs-gentle'
 Plug 'stephpy/vim-yaml'
 Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/tsuquyomi'
 
 " Opinionated JavaScript formatting
 Plug 'prettier/vim-prettier', {
