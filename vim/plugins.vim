@@ -17,6 +17,7 @@ Plug 'ianks/vim-tsx'
 Plug 'vim-scripts/auto-pairs-gentle'
 Plug 'stephpy/vim-yaml'
 Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/tsuquyomi'
 
 " Opinionated JavaScript formatting
 Plug 'prettier/vim-prettier', {
@@ -31,5 +32,6 @@ Plug '/usr/local/opt/fzf'
 
 " Themes
 Plug 'jacoborus/tender'
-Plug 'semibran/vim-colors-synthetic'
+Plug 'dracula/vim', { 'as': 'dracula'  }
+Plug 'nanotech/jellybeans.vim'
 call plug#end()

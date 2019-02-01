@@ -200,4 +200,4 @@ let g:AutoPairsUseInsertedCount=1
 
 " Setup colorscheme
 " set term=xterm-256color
-colorscheme synthetic
+colorscheme tender
