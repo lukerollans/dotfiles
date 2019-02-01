@@ -32,4 +32,6 @@ Plug '/usr/local/opt/fzf'
 
 " Themes
 Plug 'jacoborus/tender'
+Plug 'dracula/vim', { 'as': 'dracula'  }
+Plug 'nanotech/jellybeans.vim'
 call plug#end()
