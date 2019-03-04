@@ -103,10 +103,9 @@ augroup vimrcEx
   autocmd FileType gitcommit setlocal textwidth=72
   autocmd FileType gitcommit setlocal spell
 
-  " Automatically run prettier on changed js files
+  " Automatically run prettier on changed files that it supports
   let g:prettier#autoformat = 0
-  let g:prettier#nvim_unstable_async = 1
-  autocmd BufWritePre *.js,*.jsx,*.ts,*.tsx Prettier
+  autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
 augroup END
 
 " Softtabs, 2 spaces

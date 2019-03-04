@@ -20,9 +20,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
 
 " Opinionated JavaScript formatting
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript'] }
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 " File contents searching
 Plug 'mileszs/ack.vim'
