@@ -105,7 +105,7 @@ augroup vimrcEx
 
   " Automatically run prettier on changed files that it supports
   let g:prettier#autoformat = 0
-  autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
+  autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.graphql,*.md,*.vue,*.html Prettier
 augroup END
 
 " Softtabs, 2 spaces
@@ -186,6 +186,9 @@ let g:user_emmet_settings = {
 \      'extends' : 'jsx',
 \  },
 \}
+
+" Use javascript.jsx syntax for .tsx files
+autocmd FileType typescript.tsx set syntax=javascript.jsx
 
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
