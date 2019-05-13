@@ -10,3 +10,6 @@ export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/lukerollans/Desktop/google-cloud-sdk/path.fish.inc' ]; . '/Users/lukerollans/Desktop/google-cloud-sdk/path.fish.inc'; end
+
+# Set some random aliases I use
+alias mt "mix test"
