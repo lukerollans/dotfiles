@@ -6,8 +6,8 @@ mine
 ### Setup
 ```shell
 # Clone the repository and move in to the directory
-git clone git@github.com:lukerollans/dotfiles.git
-cd ~/dotfiles
+git clone git@github.com:lukerollans/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
 
 # Use rcup to install
 rcup
