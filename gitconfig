@@ -29,10 +29,10 @@
   path = ~/.gitconfig.local
 [user]
   name = Luke Rollans
-  email = hello@lukerollans.me
-  signingkey = 5C2F45A0
+  email = luke@rollans.sh
+  signingkey = 4B4A95BB6C6477BC
 [pager]
   diff = diff-so-fancy | less --tabs=1,5 -RFX
   show = diff-so-fancy | less --tabs=1,5 -RFX
 [gpg]
- program = gpg2
+  program = gpg
