@@ -15,5 +15,9 @@ alias mt "mix test"
 set PATH ~/Library/Android/sdk/tools $PATH
 set PATH ~/Library/Android/sdk/platform-tools $PATH
 
+# Use Starship prompt
+# https://starship.rs
+eval (starship init fish)
+
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/lukerollans/google-cloud-sdk/path.fish.inc' ]; . '/Users/lukerollans/google-cloud-sdk/path.fish.inc'; end
+if [ -f '/Users/lukerollans/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/Users/lukerollans/Downloads/google-cloud-sdk/path.fish.inc'; end
