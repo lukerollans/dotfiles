@@ -20,4 +20,4 @@ set PATH ~/Library/Android/sdk/platform-tools $PATH
 eval (starship init fish)
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/lukerollans/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/Users/lukerollans/Downloads/google-cloud-sdk/path.fish.inc'; end
+if [ -f '/Users/lukerollans/code/google-cloud-sdk/google-cloud-sdk/path.fish.inc' ]; . '/Users/lukerollans/code/google-cloud-sdk/google-cloud-sdk/path.fish.inc'; end
