@@ -96,6 +96,9 @@ augroup vimrcEx
   " Enable spellchecking for Markdown
   autocmd FileType markdown setlocal spell
 
+  " Automatically set Ruby syntax when editing Podfiles
+  autocmd BufRead,BufNewFile Podfile set syntax=ruby
+
   " Automatically wrap at 80 characters for Markdown
   autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 
@@ -105,7 +108,7 @@ augroup vimrcEx
 
   " Automatically run prettier on changed files that it supports
   let g:prettier#autoformat = 0
-  autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.graphql,*.md,*.vue,*.html Prettier
+  autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.graphql,*.md,*.vue Prettier
 augroup END
 
 " Softtabs, 2 spaces
