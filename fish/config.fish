@@ -8,8 +8,9 @@ source ~/.asdf/asdf.fish
 # Use The Silver Searcher (`ag`) as the default fzf finder
 export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
 
-# Set some random aliases I use
+# Set some arbitrary aliases I use
 alias mt "mix test"
+alias mc "mix compile"
 
 # Add Android Studio things
 set PATH ~/Library/Android/sdk/tools $PATH
