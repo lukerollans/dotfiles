@@ -29,7 +29,7 @@
   path = ~/.gitconfig.local
 [user]
   name = Luke Rollans
-	email = luke@rollans.sh
+  email = luke@rollans.sh
   signingkey = 4B4A95BB6C6477BC
 [pager]
   diff = diff-so-fancy | less --tabs=1,5 -RFX
