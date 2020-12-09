@@ -18,6 +18,7 @@ set PATH ~/Library/Android/sdk/platform-tools $PATH
 
 # Use Starship prompt
 # https://starship.rs
+export STARSHIP_CONFIG=~/.dotfiles/starship.toml
 eval (starship init fish)
 
 # The next line updates PATH for the Google Cloud SDK.
