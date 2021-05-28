@@ -21,5 +21,8 @@ set PATH ~/Library/Android/sdk/platform-tools $PATH
 set -g STARSHIP_CONFIG ~/.dotfiles/starship.toml
 eval (starship init fish)
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/lukerollans/code/google-cloud-sdk/google-cloud-sdk/path.fish.inc' ]; . '/Users/lukerollans/code/google-cloud-sdk/google-cloud-sdk/path.fish.inc'; end
+# Ensure compilers can find openssl
+set -g fish_user_paths "/usr/local/opt/openssl@1.1/bin" $fish_user_paths
+set -gx LDFLAGS "-L/usr/local/opt/openssl@1.1/lib"
+set -gx CPPFLAGS "-I/usr/local/opt/openssl@1.1/include"
+set -gx PKG_CONFIG_PATH "/usr/local/opt/openssl@1.1/lib/pkgconfig"

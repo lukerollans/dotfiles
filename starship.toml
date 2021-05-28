@@ -1,3 +1,6 @@
+[elixir]
+command_timeout = 1000
+symbol = "⚗️ "
 [aws]
 disabled = true
 [gcloud]
