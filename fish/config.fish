@@ -1,9 +1,6 @@
 # Set universal editor
 set -U EDITOR vim
 
-# Setup asdf
-source ~/.asdf/asdf.fish
-
 # fzf for fuzzy finding
 # Use The Silver Searcher (`ag`) as the default fzf finder
 export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
@@ -12,9 +9,16 @@ export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
 alias mt "mix test"
 alias mc "mix compile"
 
-# Add Android Studio things
-set PATH ~/Library/Android/sdk/tools $PATH
-set PATH ~/Library/Android/sdk/platform-tools $PATH
+# Ensure Homebrew paths are available
+set -gx HOMEBREW_PREFIX "/opt/homebrew";
+set -gx HOMEBREW_CELLAR "/opt/homebrew/Cellar";
+set -gx HOMEBREW_REPOSITORY "/opt/homebrew";
+set -q PATH; or set PATH ''; set -gx PATH "/opt/homebrew/bin" "/opt/homebrew/sbin" $PATH;
+set -q MANPATH; or set MANPATH ''; set -gx MANPATH "/opt/homebrew/share/man" $MANPATH;
+set -q INFOPATH; or set INFOPATH ''; set -gx INFOPATH "/opt/homebrew/share/info" $INFOPATH;
+
+# Setup asdf and assume it was installed via Homebrew
+source (brew --prefix asdf)/asdf.fish
 
 # Use Starship prompt
 # https://starship.rs

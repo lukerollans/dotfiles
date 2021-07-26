@@ -31,7 +31,8 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'mileszs/ack.vim'
 
 " fzf for fuzzy finding
-Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " Themes
 Plug 'jacoborus/tender'
