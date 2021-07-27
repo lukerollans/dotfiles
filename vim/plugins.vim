@@ -16,6 +16,7 @@ Plug 'ianks/vim-tsx'
 Plug 'vim-scripts/auto-pairs-gentle'
 Plug 'stephpy/vim-yaml'
 Plug 'evanleck/vim-svelte'
+Plug 'dag/vim-fish'
 
 " TypeScript
 Plug 'leafgarland/typescript-vim'
