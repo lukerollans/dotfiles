@@ -18,7 +18,7 @@ set -q MANPATH; or set MANPATH ''; set -gx MANPATH "/opt/homebrew/share/man" $MA
 set -q INFOPATH; or set INFOPATH ''; set -gx INFOPATH "/opt/homebrew/share/info" $INFOPATH;
 
 # Setup asdf and assume it was installed via Homebrew
-source (brew --prefix asdf)/asdf.fish
+source /opt/homebrew/opt/asdf/libexec/asdf.fish
 
 # Use Starship prompt
 # https://starship.rs
