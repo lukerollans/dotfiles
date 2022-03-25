@@ -34,5 +34,8 @@ set -gx EGREP "egrep"
 set -gx CC "clang"
 set -gx CPP "clang -E"
 
+# Make Rust things work
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # Read in Perx secrets
 source ~/.config/fish/perx.fish
