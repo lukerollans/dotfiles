@@ -93,6 +93,9 @@ augroup vimrcEx
   " Set syntax highlighting for specific file types
   autocmd BufRead,BufNewFile *.md set filetype=markdown
 
+  " Ensure Elixir syntax highlighting works
+  autocmd BufRead,BufNewFile *.ex,*.exs set syntax=elixir
+
   " Enable spellchecking for Markdown
   autocmd FileType markdown setlocal spell
 
