@@ -1,5 +1,7 @@
 [elixir]
 symbol = "⚗️ "
+[nodejs]
+symbol = "💊 "
 [aws]
 disabled = true
 [gcloud]
