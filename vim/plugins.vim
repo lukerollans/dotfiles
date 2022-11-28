@@ -17,6 +17,9 @@ Plug 'vim-scripts/auto-pairs-gentle'
 Plug 'stephpy/vim-yaml'
 Plug 'evanleck/vim-svelte'
 Plug 'dag/vim-fish'
+Plug 'junegunn/vim-emoji'
+Plug 'jparise/vim-graphql'
+Plug 'airblade/vim-gitgutter'
 
 " TypeScript
 Plug 'leafgarland/typescript-vim'
