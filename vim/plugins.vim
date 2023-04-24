@@ -27,6 +27,8 @@ Plug 'Quramy/tsuquyomi'
 
 " Terraform
 Plug 'hashivim/vim-terraform'
+Plug 'vim-syntastic/syntastic'
+Plug 'juliosueiras/vim-terraform-completion'
 
 " Opinionated JavaScript formatting
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }

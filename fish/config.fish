@@ -42,3 +42,15 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # Read in Perx secrets
 source ~/.config/fish/perx.fish
+
+# Bun
+set -Ux BUN_INSTALL "/Users/admin/.bun"
+set -px --path PATH "/Users/admin/.bun/bin"
+
+
+# pnpm
+set -gx PNPM_HOME "/Users/admin/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
