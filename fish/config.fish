@@ -1,5 +1,5 @@
 # Set universal editor
-set -U EDITOR nvim
+set -gx EDITOR nvim
 
 # fzf for fuzzy finding
 # Use The Silver Searcher (`ag`) as the default fzf finder
