@@ -8,6 +8,8 @@ export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
 # Set some arbitrary aliases I use
 alias mt "mix test"
 alias mc "mix compile"
+alias vim "nvim"
+alias vi "nvim"
 
 # Ensure Homebrew paths are available
 set -gx HOMEBREW_PREFIX "/opt/homebrew";
