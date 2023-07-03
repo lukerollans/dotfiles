@@ -1,5 +1,6 @@
 [aws]
 symbol = "  "
+format = 'on [$symbol($profile )]($style)'
 
 [c]
 symbol = " "
@@ -12,6 +13,7 @@ symbol = " "
 
 [docker_context]
 symbol = " "
+disabled = true
 
 [elixir]
 symbol = " "
@@ -92,7 +94,7 @@ Ubuntu = " "
 Unknown = " "
 
 [package]
-symbol = " "
+disabled = true
 
 [python]
 symbol = " "
