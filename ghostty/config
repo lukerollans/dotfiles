@@ -8,3 +8,4 @@ window-padding-y = 8
 window-decoration = false
 
 theme = catppuccin-mocha.conf
+background = 1d2022
