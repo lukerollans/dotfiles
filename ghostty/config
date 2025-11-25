@@ -7,5 +7,4 @@ window-padding-x = 8
 window-padding-y = 8
 window-decoration = false
 
-background = #1d2022
-cursor-color = #cccccc
+theme = catppuccin-mocha.conf
