@@ -27,8 +27,6 @@
   prune = true
 [rebase]
   autosquash = true
-[include]
-  path = ~/.gitconfig.local
 [user]
   name = Luke Rollans
   email = luke@rollans.sh
@@ -38,3 +36,5 @@
   show = diff-so-fancy | less --tabs=1,5 -RFX
 [gpg]
   format = ssh
+[include]
+  path = ~/.gitconfig.local
