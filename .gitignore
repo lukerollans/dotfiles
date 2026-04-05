@@ -1,4 +1,6 @@
 # Ignore fish backups
 fish/config.fish.backup
+# Ignore fish state files
+fish/fishd*
 # Ignore secrets
 fish/perx.fish
