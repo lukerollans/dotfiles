@@ -1,0 +1,13 @@
+#workspaces {
+	margin-left: 5px;
+}
+
+#workspaces button {
+	border-radius: 100px;
+	margin-right: 5px;
+	background-color: @mantle;
+}
+
+#workspaces button.active {
+	background-color: @yellow;
+}

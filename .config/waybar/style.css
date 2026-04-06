@@ -1,21 +1,3 @@
-* {
-	border: none;
-	border-radius: 10px;
-	font-family: "Berkeley Mono";
-	font-weight: bold;
-	font-size: 12px;
-	min-height: 0;
-}
-
-window#waybar {
-	background: rgba(21,18,27,0);
-	color: #cdd6f4;
-}
-
-.module {
-	background: #1e1e2e;
-	opacity: 1.0;
-	padding: 1px;
-	margin: 5px;
-	border-radius: 100px;
-}
+@import "./catpuccin/mocha.css";
+@import "./css/base.css";
+@import "./css/modules/workspaces.css";

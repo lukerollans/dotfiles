@@ -1,0 +1,21 @@
+* {
+	border: none;
+	border-radius: 10px;
+	font-family: "Berkeley Mono";
+	font-weight: bold;
+	font-size: 12px;
+	min-height: 0;
+}
+
+window#waybar {
+	background: rgba(21,18,27,0);
+	color: #cdd6f4;
+}
+
+.module {
+	background: @crust;
+	opacity: 1.0;
+	padding: 1px;
+	margin: 5px;
+	border-radius: 100px;
+}
