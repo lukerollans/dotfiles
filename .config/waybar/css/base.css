@@ -11,10 +11,10 @@ window#waybar {
 }
 
 .module {
-	background: @crust;
 	opacity: 1;
 	margin: 5px;
 	border-radius: 12px;
+	background-color: @crust;
 }
 
 .tooltip {

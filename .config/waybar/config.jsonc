@@ -13,10 +13,6 @@
 			"3": "",
 			"4": "",
 			"5": "",
-			"6": "",
-			"7": "",
-			"8": "",
-			"9": "",
 			"active": "",
 			"urgent": "",
 			"persistent": "",
@@ -33,7 +29,7 @@
 	},
 
 	"network": {
-		"format-wifi": "\uf0d8 {bandwidthDownBytes} \uf0d7 {bandwidthUpBytes}",
+		"format-wifi": "\uf0d7 {bandwidthDownBytes} \uf0d8 {bandwidthUpBytes}",
 		"format-disconnected": "dc",
 		"format-icons": ["L", "M", "H"]
 	},
