@@ -9,3 +9,5 @@ window-decoration = false
 
 theme = catppuccin-mocha.conf
 background = 1d2022
+
+cursor-style = block
