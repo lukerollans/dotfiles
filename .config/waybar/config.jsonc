@@ -1,0 +1,15 @@
+{
+	"modules-left": ["hyprland/workspaces"],
+	"modules-center": ["clock"],
+	"modules-right": ["network", "battery"],
+
+	"clock": {
+		"format": "{:%H:%M}",
+		"tooltip-format": "{:%A, %B %d %Y}"
+	},
+
+	"network": {
+		"format-wifi": " {signalStrength}%",
+		"format-disconnected": "dc"
+	}
+}
