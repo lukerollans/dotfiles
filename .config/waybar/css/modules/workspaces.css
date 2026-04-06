@@ -3,8 +3,13 @@
 }
 
 #workspaces button {
-	border-radius: 100px;
-	margin-right: 5px;
+	border-radius: 50%;
+	min-width: 6px;
+	min-height: 6px;
+	padding: 0;
+	margin: 0 5px 0 0;
+	border: none;
+	font-size: 0;
 	background-color: @mantle;
 }
 
