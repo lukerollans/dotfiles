@@ -1,20 +1,23 @@
 * {
-	border: none;
 	font-family: "JetBrainsMono Nerd Font";
-	font-weight: bold;
 	font-size: 10px;
 	min-height: 0;
+	border: none;
 }
 
 window#waybar {
-	background: rgba(21,18,27,0);
-	color: #cdd6f4;
+	color: @text;
+	background-color: transparent;
 }
 
 .module {
 	background: @crust;
-	opacity: 1.0;
-	padding: 0px 4px;
+	opacity: 1;
 	margin: 5px;
 	border-radius: 12px;
+}
+
+.tooltip {
+	background: @crust;
+	opacity: 1;
 }

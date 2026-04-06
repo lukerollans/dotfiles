@@ -1,5 +1,8 @@
 #workspaces {
 	margin-left: 5px;
+	padding-left: 6px;
+	padding-bottom: 3px;
+	padding-top: 2px;
 }
 
 #workspaces button {
@@ -7,12 +10,18 @@
 	min-width: 6px;
 	min-height: 6px;
 	padding: 0;
-	margin: 0 5px 0 0;
+	margin: 0 10px 0 0;
 	border: none;
 	font-size: 0;
-	background-color: @mantle;
+	color: @mantle;
 }
 
 #workspaces button.active {
-	background-color: @yellow;
+	color: @yellow;
+	transition: color 0.3s ease;
+}
+
+#workspaces button:hover {
+	color: @blue;
+	background-color: @crust;
 }

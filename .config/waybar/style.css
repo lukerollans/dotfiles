@@ -1,3 +1,6 @@
 @import "./catpuccin/mocha.css";
 @import "./css/base.css";
 @import "./css/modules/workspaces.css";
+@import "./css/modules/clock.css";
+@import "./css/modules/network.css";
+@import "./css/modules/battery.css";
