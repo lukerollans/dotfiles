@@ -1,46 +1,46 @@
 {
-    "logo": {
-    	"source": "none",
+  "logo": {
+    "source": "none"
+  },
+  "display": {
+    "separator": " "
+  },
+  "modules": [
+    {
+      "type": "title",
+      "keyWidth": 10
     },
-    "display": {
-      "separator": " "
+    "break",
+    {
+      "type": "os",
+      "key": " ",
+      "keyColor": "34",
     },
-    "modules": [
-      {
-        "type": "title",
-        "keyWidth": 10
-      },
-      "break",
-      {
-        "type": "os",
-        "key": " ",
-        "keyColor": "34",
-      },
-      {
-        "type": "kernel",
-        "key": " ",
-        "keyColor": "34",
-      },
-      {
-        "type": "shell",
-        "key": " ",
-        "keyColor": "34", 
-      },
-      {
-        "type": "terminal",
-        "key": " ",
-        "keyColor": "34", 
-      },
-      {
-        "type": "wm",
-        "key": " ",
-        "keyColor": "34", 
-      },
-      {
-        "type": "datetime",
-        "format": "{11}-{3}-{1}",
-        "key": " ",
-        "keyColor": "34", 
-      },
+    {
+      "type": "kernel",
+      "key": " ",
+      "keyColor": "34",
+    },
+    {
+      "type": "shell",
+      "key": " ",
+      "keyColor": "34", 
+    },
+    {
+      "type": "terminal",
+      "key": " ",
+      "keyColor": "34", 
+    },
+    {
+      "type": "wm",
+      "key": " ",
+      "keyColor": "34", 
+    },
+    {
+      "type": "datetime",
+      "format": "{11}-{3}-{1}",
+      "key": " ",
+      "keyColor": "34", 
+    },
   ]
 }
