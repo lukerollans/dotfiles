@@ -1,7 +1,7 @@
 {
 	"modules-left": ["hyprland/workspaces"],
 	"modules-center": ["clock"],
-	"modules-right": ["network", "cava", "pulseaudio", "battery"],
+	"modules-right": ["network", "bluetooth", "cava", "pulseaudio", "battery"],
 
 	"hyprland/workspaces": {
 		"format": "{icon}",
@@ -59,8 +59,18 @@
 	},
 
 	"network": {
-		"format-wifi": "\uf0d7 {bandwidthDownBytes} \uf0d8 {bandwidthUpBytes}",
-		"format-disconnected": "dc"
+		"format-wifi": "{icon} {essid}",
+		"format-disconnected": "dc",
+		"format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"]
+	},
+
+	"bluetooth": {
+		"format-connected": "󰂱 {device_alias}",
+		"format-on": "󰂯",
+		"format-off": "󰂲",
+		"format-disabled": "󰂲",
+		"tooltip-format-connected": "{device_enumerate}",
+		"tooltip-format-enumerate-connected": "{device_alias}\t{device_battery_percentage}%"
 	},
 
 	"battery": {

@@ -3,5 +3,6 @@
 @import "./css/modules/workspaces.css";
 @import "./css/modules/clock.css";
 @import "./css/modules/network.css";
+@import "./css/modules/bluetooth.css";
 @import "./css/modules/pulseaudio.css";
 @import "./css/modules/battery.css";
