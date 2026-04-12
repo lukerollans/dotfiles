@@ -12,8 +12,9 @@ window#waybar {
 
 .module {
 	opacity: 1;
-	margin: 5px;
 	border-radius: 12px;
+	margin-top: 5px;
+	margin-bottom: 5px;
 	background-color: @crust;
 }
 
