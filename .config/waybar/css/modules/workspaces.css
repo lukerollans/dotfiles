@@ -14,7 +14,6 @@
 	border: none;
 	font-size: 0;
 	color: @mantle;
-	background-color: @crust;
 }
 
 #workspaces button.active {
