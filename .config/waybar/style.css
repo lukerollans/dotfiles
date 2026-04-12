@@ -2,6 +2,7 @@
 @import "./css/base.css";
 @import "./css/modules/workspaces.css";
 @import "./css/modules/clock.css";
+@import "./css/modules/cava.css";
 @import "./css/modules/network.css";
 @import "./css/modules/bluetooth.css";
 @import "./css/modules/pulseaudio.css";

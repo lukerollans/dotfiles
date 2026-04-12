@@ -1,7 +1,7 @@
 {
 	"modules-left": ["hyprland/workspaces"],
 	"modules-center": ["clock"],
-	"modules-right": ["network", "bluetooth", "cava", "pulseaudio", "battery"],
+	"modules-right": ["cava", "network", "bluetooth", "pulseaudio", "battery"],
 
 	"hyprland/workspaces": {
 		"format": "{icon}",
