@@ -44,10 +44,6 @@ require("lualine").setup {
     icons_enabled = false,
     section_separators = "",
     component_separators = "",
-    disabled_filetypes = {
-      winbar = {},
-      statusline = { "NvimTree" },
-    },
   },
   sections = {
     lualine_a = {

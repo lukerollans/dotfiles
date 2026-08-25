@@ -17,12 +17,9 @@ require("bufferline").setup({
     max_name_length = 25,
    custom_areas = {
      left = function()
-     if vim.bo.filetype == "alpha" then
-       return {}
-     end
-     return {
-       { text = "    ", fg = colours.fg },
-     }
+       return {
+         { text = "    ", fg = colours.fg },
+       }
      end,
    },
   },

@@ -14,7 +14,6 @@ local modules = {
   'lsp',
   'autopairs',
   'autocomplete',
-  'null-ls',
   'telescope',
   'common',
   'bufferline',

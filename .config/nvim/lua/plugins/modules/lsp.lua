@@ -88,6 +88,9 @@ for server, binary in pairs({ astro = 'astro-ls', lua_ls = 'lua-language-server'
   end
 end
 
+-- biome runs project-local (only attaches where a biome config exists)
+vim.lsp.enable('biome')
+
 -- define how diagnostics manifest
 vim.diagnostic.config({
   underline = false,
