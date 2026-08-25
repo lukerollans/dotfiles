@@ -5,6 +5,13 @@ vim.pack.add({
 })
 
 require('noice').setup({
+  routes = {
+    -- don't label matches with the search term and count while searching
+    {
+      filter = { event = 'msg_show', kind = 'search_count' },
+      opts = { skip = true },
+    },
+  },
   lsp = {
     override = {
       ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
