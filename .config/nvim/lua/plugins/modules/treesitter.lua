@@ -1,107 +1,101 @@
--- syntax highlighting and parsing
-return {
-  {
-    "nvim-treesitter/nvim-treesitter",
-    version = false,
-    build = ":TSUpdate",
-    event = { "BufReadPost", "BufNewFile" },
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter-textobjects",
-    },
-    opts = function(_, opts)
-      if type(opts.ensure_installed) == "table" then
-        vim.list_extend(opts.ensure_installed, { "typescript", "tsx" })
-      end
-    end,
-    config = function()
-      require("nvim-treesitter.configs").setup {
-        auto_install = true,
-        highlight = {
-          enable = true,
-          additional_vim_regex_highlighting = false,
-        },
-        indent = {
-          enable = true
-        },
-        context_commentstring = {
-          enable = true,
-          enable_autocmd = false 
-        },
-        ensure_installed = {
-          "bash",
-          "elixir",
-          "html",
-          "javascript",
-          "json",
-          "markdown",
-          "markdown_inline",
-          "tsx",
-          "typescript",
-          "vim",
-          "yaml",
-        },
-        incremental_selection = {
-          enable = true,
-          keymaps = {
-            init_selection = "<leader>vv",
-            node_incremental = "+",
-            scope_incremental = false,
-            node_decremental = "_",
-          },
-        },
-        textobjects = {
-          select = {
-            enable = true,
-            lookahead = true,
+-- syntax highlighting and parsing (nvim-treesitter 'main' rewrite)
+vim.pack.add({
+  { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'main' },
+  { src = 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects', version = 'main' },
+})
 
-            keymaps = {
-              -- You can use the capture groups defined in textobjects.scm
-              ["af"] = { query = "@function.outer", desc = "around a function" },
-              ["if"] = { query = "@function.inner", desc = "inner part of a function" },
-              ["ac"] = { query = "@class.outer", desc = "around a class" },
-              ["ic"] = { query = "@class.inner", desc = "inner part of a class" },
-              ["ai"] = { query = "@conditional.outer", desc = "around an if statement" },
-              ["ii"] = { query = "@conditional.inner", desc = "inner part of an if statement" },
-              ["al"] = { query = "@loop.outer", desc = "around a loop" },
-              ["il"] = { query = "@loop.inner", desc = "inner part of a loop" },
-              -- ["ap"] = { query = "@parameter.outer", desc = "around parameter" },
-              -- ["ip"] = { query = "@parameter.inner", desc = "inside a parameter" },
-            },
-            selection_modes = {
-              ["@parameter.outer"] = "v",   -- charwise
-              ["@parameter.inner"] = "v",   -- charwise
-              ["@function.outer"] = "v",    -- charwise
-              ["@conditional.outer"] = "V", -- linewise
-              ["@loop.outer"] = "V",        -- linewise
-              ["@class.outer"] = "<c-v>",   -- blockwise
-            },
-            include_surrounding_whitespace = false,
-          },
-          move = {
-            enable = true,
-            set_jumps = true, -- whether to set jumps in the jumplist
-            goto_previous_start = {
-              ["[f"] = { query = "@function.outer", desc = "Previous function" },
-              ["[c"] = { query = "@class.outer", desc = "Previous class" },
-              ["[p"] = { query = "@parameter.inner", desc = "Previous parameter" },
-            },
-            goto_next_start = {
-              ["]f"] = { query = "@function.outer", desc = "Next function" },
-              ["]c"] = { query = "@class.outer", desc = "Next class" },
-              ["]p"] = { query = "@parameter.inner", desc = "Next parameter" },
-            },
-          },
-          swap = {
-            enable = true,
-            swap_next = {
-              ["<leader>a"] = "@parameter.inner",
-            },
-            swap_previous = {
-              ["<leader>A"] = "@parameter.inner",
-            },
-          },
-        },
-      }
+-- install parsers (async; already-installed parsers are skipped)
+require('nvim-treesitter').install({
+  'bash',
+  'elixir',
+  'go',
+  'heex',
+  'html',
+  'javascript',
+  'json',
+  'lua',
+  'markdown',
+  'markdown_inline',
+  'prisma',
+  'terraform',
+  'tsx',
+  'typescript',
+  'vim',
+  'vimdoc',
+  'yaml',
+})
+
+-- start highlighting and indentation in any buffer with an installed parser
+vim.api.nvim_create_autocmd('FileType', {
+  group = vim.api.nvim_create_augroup('treesitter_start', { clear = true }),
+  callback = function(ev)
+    if pcall(vim.treesitter.start, ev.buf) then
+      vim.bo[ev.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
     end
+  end,
+})
+
+-- textobjects
+require('nvim-treesitter-textobjects').setup({
+  select = {
+    lookahead = true,
+    selection_modes = {
+      ['@parameter.outer'] = 'v',   -- charwise
+      ['@parameter.inner'] = 'v',   -- charwise
+      ['@function.outer'] = 'v',    -- charwise
+      ['@conditional.outer'] = 'V', -- linewise
+      ['@loop.outer'] = 'V',        -- linewise
+      ['@class.outer'] = '<c-v>',   -- blockwise
+    },
+    include_surrounding_whitespace = false,
+  },
+  move = {
+    set_jumps = true, -- whether to set jumps in the jumplist
+  },
+})
+
+local map = vim.keymap.set
+
+local selects = {
+  af = { '@function.outer', 'around a function' },
+  ['if'] = { '@function.inner', 'inner part of a function' },
+  ac = { '@class.outer', 'around a class' },
+  ic = { '@class.inner', 'inner part of a class' },
+  ai = { '@conditional.outer', 'around an if statement' },
+  ii = { '@conditional.inner', 'inner part of an if statement' },
+  al = { '@loop.outer', 'around a loop' },
+  il = { '@loop.inner', 'inner part of a loop' },
+}
+for lhs, select in pairs(selects) do
+  map({ 'x', 'o' }, lhs, function()
+    require('nvim-treesitter-textobjects.select').select_textobject(select[1], 'textobjects')
+  end, { desc = select[2] })
+end
+
+local moves = {
+  goto_next_start = {
+    [']f'] = { '@function.outer', 'Next function' },
+    [']c'] = { '@class.outer', 'Next class' },
+    [']p'] = { '@parameter.inner', 'Next parameter' },
+  },
+  goto_previous_start = {
+    ['[f'] = { '@function.outer', 'Previous function' },
+    ['[c'] = { '@class.outer', 'Previous class' },
+    ['[p'] = { '@parameter.inner', 'Previous parameter' },
   },
 }
+for direction, mappings in pairs(moves) do
+  for lhs, move in pairs(mappings) do
+    map({ 'n', 'x', 'o' }, lhs, function()
+      require('nvim-treesitter-textobjects.move')[direction](move[1], 'textobjects')
+    end, { desc = move[2] })
+  end
+end
+
+-- parameter swapping (not on <leader>a/<leader>A: that's the claude prefix)
+map('n', '<leader>x', function()
+  require('nvim-treesitter-textobjects.swap').swap_next('@parameter.inner')
+end, { desc = 'Swap with next parameter' })
+map('n', '<leader>X', function()
+  require('nvim-treesitter-textobjects.swap').swap_previous('@parameter.inner')
+end, { desc = 'Swap with previous parameter' })

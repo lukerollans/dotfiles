@@ -1,16 +1,13 @@
 -- various formatting related plugins
+vim.pack.add({
+  'https://github.com/lukas-reineke/indent-blankline.nvim', -- show indentation guides on blank lines
+})
 
-return {
-  {
-    'lukas-reineke/indent-blankline.nvim', -- show indentation guides on blank lines
-    main = 'ibl',
-    opts = {
-      indent = {
-        char = '┊',
-      },
-      scope = {
-        enabled = false
-      }
-    },
+require('ibl').setup({
+  indent = {
+    char = '┊',
   },
-}
+  scope = {
+    enabled = false
+  }
+})

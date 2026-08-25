@@ -1,213 +1,178 @@
--- set up language server provider
-return {
-  {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
-    lazy = false,
-    dependencies = {
-      -- LSP Support
-      { 'neovim/nvim-lspconfig' },
-      {
-        'williamboman/mason.nvim',
-        build = function()
-          pcall(vim.cmd, 'MasonUpdate')
-        end,
+-- language servers: native vim.lsp.config/enable with nvim-lspconfig's server
+-- definitions, mason to install server binaries
+vim.pack.add({
+  'https://github.com/neovim/nvim-lspconfig',
+  'https://github.com/mason-org/mason.nvim',
+  'https://github.com/mason-org/mason-lspconfig.nvim',
+  'https://github.com/b0o/schemastore.nvim', -- json and yaml schema stores
+  'https://github.com/nvim-lua/plenary.nvim',
+  'https://github.com/elixir-tools/elixir-tools.nvim',
+})
+
+-- per-server settings, merged over nvim-lspconfig's definitions
+
+-- configure Lua specific settings
+vim.lsp.config('lua_ls', {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' },
       },
-      { 'williamboman/mason-lspconfig.nvim' },
-
-      { 'L3MON4D3/LuaSnip' }, -- snippet engine
-      { 'onsails/lspkind.nvim' }, -- pictograms in autocompletion menu
-      { 'b0o/schemastore.nvim' } -- json and yaml schema stores
+      workspace = {
+        library = {
+          vim.env.VIMRUNTIME .. '/lua',
+          vim.fn.stdpath('config') .. '/lua',
+        },
+      },
     },
-    config = function()
-      local lsp = require('lsp-zero').preset('recommended')
+  },
+})
 
-      lsp.ensure_installed({
-        'ts_ls',
-        'eslint',
-        'jsonls',
-        'yamlls',
-        'bashls',
-        'vimls',
-        'elixirls',
-        'prismals',
-        'terraformls',
-        -- 'astro',
-        -- 'rust_analyzer',
-        'gopls',
-        -- 'lua_ls',
-        -- 'intelephense',
-      })
+-- configure JSON specific settings
+vim.lsp.config('jsonls', {
+  settings = {
+    json = {
+      schemas = require('schemastore').json.schemas(),
+      validate = { enable = true },
+    },
+  },
+})
 
-      -- set keymappings once attached
-      lsp.on_attach(function(_, bufnr)
-        lsp.default_keymaps({ buffer = bufnr })
-        vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', { buffer = true })
-      end)
+-- configure yaml specific settings
+vim.lsp.config('yamlls', {
+  settings = {
+    yaml = {
+      schemaStore = {
+        enable = false,
+      },
+      schemas = require('schemastore').yaml.schemas(),
+      validate = { enable = true },
+    },
+  },
+})
 
-      -- format buffers on save if they're attached to a language server
-      lsp.format_on_save({
-        format_opts = {
-          async = false,
-          timeout_ms = 10000,
-        },
-        servers = {
-          ['ts_ls'] = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' },
-          ['elixirls'] = { 'elixir', 'eex' },
-          ['jsonls'] = { 'json' },
-          ['prismals'] = { 'prisma' },
-          -- ['astro'] = { 'astro' },
-          -- ['lua_ls'] = { 'lua' },
-          -- ['rust_analyzer'] = { 'rust' },
-          ['gopls'] = { 'go' },
-        }
-      })
+-- configure eslint specific settings
+vim.lsp.config('eslint', {
+  settings = {
+    format = true,
+    workingDirectory = {
+      mode = 'location',
+    },
+  },
+})
 
-      -- tweak some basic preferences
-      lsp.set_preferences({
-        suggest_lsp_servers = false,
-        sign_icons = {
-          error = "E",
-          warn = "W",
-          hint = "H",
-          info = "I",
-        },
-      })
+require('mason').setup()
+require('mason-lspconfig').setup({
+  ensure_installed = {
+    'ts_ls',
+    'eslint',
+    'jsonls',
+    'yamlls',
+    'bashls',
+    'vimls',
+    'elixirls',
+    'prismals',
+    'terraformls',
+    'gopls',
+  },
+  -- elixir-tools runs its own elixir-ls instance; don't start a second one
+  automatic_enable = {
+    exclude = { 'elixirls' },
+  },
+})
 
-      -- define how diagnostics manifest
-      vim.diagnostic.config({
-        underline = false,
-        virtual_text = false,
-        signs = true,
-        update_in_insert = false,
-        severity_sort = true,
-        float = {
-          source = "always",
-          style = "minimal",
-          border = "rounded",
-          header = "",
-          prefix = "",
-        },
-      })
+-- servers used when installed locally rather than through mason
+for server, binary in pairs({ astro = 'astro-ls', lua_ls = 'lua-language-server' }) do
+  if vim.fn.executable(binary) == 1 then
+    vim.lsp.enable(server)
+  end
+end
 
-      local lspconfig = require('lspconfig')
+-- define how diagnostics manifest
+vim.diagnostic.config({
+  underline = false,
+  virtual_text = false,
+  update_in_insert = false,
+  severity_sort = true,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = 'E',
+      [vim.diagnostic.severity.WARN] = 'W',
+      [vim.diagnostic.severity.HINT] = 'H',
+      [vim.diagnostic.severity.INFO] = 'I',
+    },
+  },
+  float = {
+    source = true,
+    style = 'minimal',
+    border = 'rounded',
+    header = '',
+    prefix = '',
+  },
+})
 
-      -- configure TypeScript specific settings
-      lspconfig.ts_ls.setup {}
+-- format these servers' buffers on save
+local format_on_save = {
+  ts_ls = true,
+  elixirls = true,
+  jsonls = true,
+  prismals = true,
+  gopls = true,
+}
 
-      -- wire up Astro files
-      lspconfig.astro.setup {}
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('lsp_attach', { clear = true }),
+  callback = function(ev)
+    local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
+    local map = function(mode, lhs, rhs)
+      vim.keymap.set(mode, lhs, rhs, { buffer = ev.buf })
+    end
 
-      -- configure Lua specific settings
-      lspconfig.lua_ls.setup({
-        settings = {
-          Lua = {
-            diagnostics = {
-              globals = { "vim" },
-            },
-            workspace = {
-              library = {
-                [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                [vim.fn.stdpath("config") .. "/lua"] = true,
-              },
-            },
-          },
-        },
-      })
+    -- on top of the built-in maps (K, grn, gra, gri, grt, gO, <C-s>, [d/]d)
+    map('n', 'gd', vim.lsp.buf.definition)
+    map('n', 'gD', vim.lsp.buf.declaration)
+    map('n', 'go', vim.lsp.buf.type_definition)
+    map('n', 'gl', vim.diagnostic.open_float)
+    map('n', 'grr', '<cmd>Telescope lsp_references<cr>')
 
-      -- configure JSON specific settings
-      lspconfig.jsonls.setup({
-        settings = {
-          json = {
-            schemas = require('schemastore').json.schemas(),
-            validate = { enable = true },
-          }
-        }
-      })
-
-      -- configure yaml specific settings
-      lspconfig.yamlls.setup({
-        settings = {
-          yaml = {
-            schemaStore = {
-              enable = false
-            },
-            schemas = require('schemastore').yaml.schemas(),
-            validate = { enable = true },
-          }
-        }
-      })
-
-      -- configure eslint specific settings
-      require('lspconfig').eslint.setup({
-        on_attach = function(client, bufnr)
-          -- automatically resolve all fixable eslint
-          -- issues when the buffer saves
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            buffer = bufnr,
-            command = "EslintFixAll",
-          })
+    if format_on_save[client.name] then
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        buffer = ev.buf,
+        callback = function()
+          vim.lsp.buf.format({ bufnr = ev.buf, id = client.id, timeout_ms = 10000 })
         end,
-        settings = {
-          format = true,
-          workingDirectory = {
-            mode = 'location' 
-          },
-        },
-      })
-
-      -- Prisma ORM specific settings
-      lspconfig.prismals.setup {}
-
-      -- all configured, start 'er up
-      lsp.setup()
-    end
-  },
-
-  -- inlay hints
-  {
-    'simrat39/inlay-hints.nvim',
-    config = function()
-      require("inlay-hints").setup({
-        only_current_line = false,
-        eol = {
-          right_align = false,
-        }
       })
     end
-  },
 
-  -----------------------------------------
-  -- language specific: Elixir           --
-  -----------------------------------------
-  -- elixir-tools
-  {
-    "elixir-tools/elixir-tools.nvim",
-    lazy = true,
-    enabled = true,
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      local elixir = require("elixir")
-      local elixirls = require("elixir.elixirls")
+    -- automatically resolve all fixable eslint issues when the buffer saves
+    if client.name == 'eslint' then
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        buffer = ev.buf,
+        command = 'LspEslintFixAll',
+      })
+    end
+  end,
+})
 
-      elixir.setup {
-        credo = {},
-        elixirls = {
-          enable = true,
-          settings = elixirls.settings {
-            dialyzerEnabled = false,
-            enableTestLenses = false,
-          },
-          on_attach = function()
-            vim.keymap.set("n", "<space>fp", ":ElixirFromPipe<cr>", { buffer = true, noremap = true })
-            vim.keymap.set("n", "<space>tp", ":ElixirToPipe<cr>", { buffer = true, noremap = true })
-            vim.keymap.set("v", "<space>em", ":ElixirExpandMacro<cr>", { buffer = true, noremap = true })
-            vim.opt_local.textwidth = 180
-          end,
-        }
-      }
+-----------------------------------------
+-- language specific: Elixir           --
+-----------------------------------------
+local elixir = require('elixir')
+local elixirls = require('elixir.elixirls')
+
+elixir.setup {
+  credo = {},
+  elixirls = {
+    enable = true,
+    settings = elixirls.settings {
+      dialyzerEnabled = false,
+      enableTestLenses = false,
+    },
+    on_attach = function()
+      vim.keymap.set('n', '<space>fp', ':ElixirFromPipe<cr>', { buffer = true, noremap = true })
+      vim.keymap.set('n', '<space>tp', ':ElixirToPipe<cr>', { buffer = true, noremap = true })
+      vim.keymap.set('v', '<space>em', ':ElixirExpandMacro<cr>', { buffer = true, noremap = true })
+      vim.opt_local.textwidth = 180
     end,
   },
 }
-
